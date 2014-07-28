@@ -7,6 +7,11 @@ body {
   font-weight:300;
 }
 
+svg {
+    background-color: gray;
+    margin-left: 25px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
