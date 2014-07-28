@@ -3,10 +3,10 @@ angular
 	.factory('utilities', [function() {
 		return {
 			translateCoordinatesScreenToSVG: function(svgElement, xScreenCoordinate, yScreenCoordinate) {
-				var point = element[0].createSVGPoint();
+				var point = svgElement[0].createSVGPoint();
 				point.x = xScreenCoordinate;
 				point.y = yScreenCoordinate;
-				return point.matrixTransform(element[0].getScreenCTM().inverse());
+				return point.matrixTransform(svgElement[0].getScreenCTM().inverse());
 			}
 		};
 	}]);

@@ -25,6 +25,7 @@ angular
 
             element.on('mousewheel', function (event) {
               if (enabled) {
+                event.preventDefault();
                 var viewBoxValues = attrs.viewbox.split(' ').map(function(value) {
                   return parseInt(value, 10);
                 }),

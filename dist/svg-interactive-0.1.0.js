@@ -1,6 +1,6 @@
 /*
  * svg-interactive
- * Version: 0.1.0 - 2014-07-11
+ * Version: 0.1.0 - 2014-07-27
  * License: MIT
  */
 angular.module("svg-interactive", ["svg-interactive.zoomable", "svg-interactive.pannable", "svg-interactive.utilities"]);
@@ -60,10 +60,10 @@ angular
 	.factory('utilities', [function() {
 		return {
 			translateCoordinatesScreenToSVG: function(svgElement, xScreenCoordinate, yScreenCoordinate) {
-				var point = element[0].createSVGPoint();
+				var point = svgElement[0].createSVGPoint();
 				point.x = xScreenCoordinate;
 				point.y = yScreenCoordinate;
-				return point.matrixTransform(element[0].getScreenCTM().inverse());
+				return point.matrixTransform(svgElement[0].getScreenCTM().inverse());
 			}
 		};
 	}]);
@@ -94,6 +94,7 @@ angular
 
             element.on('mousewheel', function (event) {
               if (enabled) {
+                event.preventDefault();
                 var viewBoxValues = attrs.viewbox.split(' ').map(function(value) {
                   return parseInt(value, 10);
                 }),
